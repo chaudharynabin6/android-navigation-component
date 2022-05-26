@@ -6,7 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.chaudharynabin6.navigationcomponent.databinding.Fragment1Binding
+import com.chaudharynabin6.navigationcomponent.databinding.FragmentNested21Binding
+import com.chaudharynabin6.navigationcomponent.databinding.FragmentNested22Binding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -15,15 +16,14 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Fragment1.newInstance] factory method to
+ * Use the [Nested_2_2.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Fragment1 : Fragment() {
+class Nested_2_2 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
-    private lateinit var binding : Fragment1Binding
+    private lateinit var binding : FragmentNested22Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,23 +38,14 @@ class Fragment1 : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = Fragment1Binding.inflate(inflater,container,false)
-        binding.navigateToFragment2.setOnClickListener{
-           val action =  Fragment1Directions.actionFragment1ToFragment2()
-            findNavController().navigate(action)
-        }
-        binding.navigateToFragment3.setOnClickListener{
-            val action = Fragment1Directions.actionFragment1ToFragment3()
-            findNavController().navigate(action)
-        }
+        binding = FragmentNested22Binding.inflate(inflater,container,false)
         binding.apply {
-            navigateToNestedGraph1.setOnClickListener {
-                val action = Fragment1Directions.actionFragment1ToNavigation2()
+            navigateBackToFragment1.setOnClickListener {
+                val action = Nested_2_2Directions.actionGlobalNested2Fragment1NestedNavGraph()
                 findNavController().navigate(action)
             }
-
-            navigateToNestedGraph2.setOnClickListener {
-                val action = Fragment1Directions.actionFragment1ToNestedNavGraph2()
+            navigateBackToFragment2.setOnClickListener {
+                val action = NestedNavGraphDirections.actionGlobalNested2Fragment2NestedNavGraph()
                 findNavController().navigate(action)
             }
         }
@@ -68,12 +59,12 @@ class Fragment1 : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Fragment1.
+         * @return A new instance of fragment Nested_2_2.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Fragment1().apply {
+            Nested_2_2().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

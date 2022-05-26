@@ -16,6 +16,13 @@
         <action
             android:id="@+id/action_fragment1_to_fragment3"
             app:destination="@id/fragment3" />
+        <action
+            android:id="@+id/action_fragment1_to_navigation2"
+            app:destination="@id/navigation2" />
+
+        <action
+            android:id="@+id/action_fragment1_to_nested_nav_graph2"
+            app:destination="@id/nested_nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/fragment2"
@@ -47,4 +54,28 @@
             android:id="@+id/action_fragment4_self"
             app:destination="@id/fragment4" />
     </fragment>
+    <navigation android:id="@+id/navigation2"
+        app:startDestination="@id/nested_1_12">
+        <fragment
+            android:id="@+id/nested_1_12"
+            android:name="com.chaudharynabin6.navigationcomponent.Nested_1_1"
+            android:label="fragment_nested_1_1"
+            tools:layout="@layout/fragment_nested_1_1" >
+            <action
+                android:id="@+id/action_nested_1_12_to_nested_1_2"
+                app:destination="@id/nested_1_2" />
+        </fragment>
+        <fragment
+            android:id="@+id/nested_1_2"
+            android:name="com.chaudharynabin6.navigationcomponent.Nested_1_2"
+            android:label="fragment_nested_1_2"
+            tools:layout="@layout/fragment_nested_1_2" />
+        <action
+            android:id="@+id/action_global_fragment1_inner_navigation"
+            app:destination="@id/fragment1" />
+    </navigation>
+    <action
+        android:id="@+id/action_global_fragment1_nav_graph"
+        app:destination="@id/fragment1" />
+    <include app:graph="@navigation/nested_nav_graph" />
 </navigation>

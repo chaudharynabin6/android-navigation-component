@@ -8,6 +8,10 @@
         <entry key="app/src/main/res/layout/fragment_2.xml" value="0.1390625" />
         <entry key="app/src/main/res/layout/fragment_3.xml" value="0.1546875" />
         <entry key="app/src/main/res/layout/fragment_4.xml" value="0.1546875" />
+        <entry key="app/src/main/res/layout/fragment_nested_1_1.xml" value="0.32760416666666664" />
+        <entry key="app/src/main/res/layout/fragment_nested_1_2.xml" value="0.32760416666666664" />
+        <entry key="app/src/main/res/layout/fragment_nested_2_1.xml" value="0.32760416666666664" />
+        <entry key="app/src/main/res/layout/fragment_nested_2_2.xml" value="0.32760416666666664" />
       </map>
     </option>
   </component>

@@ -4,39 +4,25 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment1">
+    tools:context=".Nested_2_2">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="fragment 1"
+        android:text="Nested 2 2"
         android:textAlignment="center"
         tools:ignore="HardcodedText" />
     <Button
-        android:id="@+id/navigate_to_fragment_2"
+        android:id="@+id/navigate_back_to_fragment_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="navigate to fragment 2"
+        android:text="navigate back to  Fragment 1"
         tools:ignore="HardcodedText" />
     <Button
-        android:id="@+id/navigate_to_fragment_3"
+        android:id="@+id/navigate_back_to_fragment_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="navigate to fragment 3"
+        android:text="navigate back to  Fragment 2"
         tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/navigate_to_nested_graph_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="navigate to nested graph 1"
-        tools:ignore="HardcodedText" />
-    <Button
-        android:id="@+id/navigate_to_nested_graph_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="navigate to nested graph 2"
-        tools:ignore="HardcodedText" />
-
 </androidx.appcompat.widget.LinearLayoutCompat>
