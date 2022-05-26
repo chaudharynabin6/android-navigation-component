@@ -1,12 +1,12 @@
 package com.chaudharynabin6.navigationcomponent
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.chaudharynabin6.navigationcomponent.databinding.Fragment1Binding
+import com.chaudharynabin6.navigationcomponent.databinding.Fragment3Binding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -15,16 +15,14 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Fragment1.newInstance] factory method to
+ * Use the [Fragment3.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Fragment1 : Fragment() {
+class Fragment3 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
-    private lateinit var binding : Fragment1Binding
-
+    private lateinit var binding: Fragment3Binding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -38,14 +36,12 @@ class Fragment1 : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = Fragment1Binding.inflate(inflater,container,false)
-        binding.navigateToFragment2.setOnClickListener{
-           val action =  Fragment1Directions.actionFragment1ToFragment2()
-            findNavController().navigate(action)
-        }
-        binding.navigateToFragment3.setOnClickListener{
-            val action = Fragment1Directions.actionFragment1ToFragment3()
-            findNavController().navigate(action)
+        binding = Fragment3Binding.inflate(inflater, container, false)
+        binding.apply {
+            navigateToFragment4.setOnClickListener{
+                val action = Fragment3Directions.actionFragment3ToFragment42()
+                findNavController().navigate(action)
+            }
         }
         return binding.root
     }
@@ -57,12 +53,12 @@ class Fragment1 : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Fragment1.
+         * @return A new instance of fragment Fragment3.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Fragment1().apply {
+            Fragment3().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

@@ -1,11 +1,14 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
     compileSdk 32
-
+    buildFeatures{
+        viewBinding true
+    }
     defaultConfig {
         applicationId "com.chaudharynabin6.navigationcomponent"
         minSdk 29
@@ -59,4 +62,6 @@ dependencies {
 
     // Jetpack Compose Integration
     implementation "androidx.navigation:navigation-compose:$nav_version"
+
+
 }

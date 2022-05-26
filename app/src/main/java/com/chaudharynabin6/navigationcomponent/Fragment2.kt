@@ -1,10 +1,13 @@
 package com.chaudharynabin6.navigationcomponent
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.chaudharynabin6.navigationcomponent.databinding.Fragment2Binding
+import com.chaudharynabin6.navigationcomponent.databinding.Fragment3Binding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,7 +23,7 @@ class Fragment2 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    private lateinit var binding: Fragment2Binding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,7 +37,14 @@ class Fragment2 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_2, container, false)
+        binding = Fragment2Binding.inflate(inflater, container, false)
+        binding.apply {
+            navigateToFragment4.setOnClickListener {
+                val action = Fragment2Directions.actionFragment2ToFragment4()
+                findNavController().navigate(action)
+            }
+        }
+        return binding.root
     }
 
     companion object {
