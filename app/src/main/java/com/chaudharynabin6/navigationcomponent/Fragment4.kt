@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.chaudharynabin6.navigationcomponent.databinding.Fragment3Binding
 import com.chaudharynabin6.navigationcomponent.databinding.Fragment4Binding
 
@@ -35,13 +36,35 @@ class Fragment4 : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = Fragment4Binding.inflate(inflater, container, false)
         binding.apply {
             navigateToFragment1.setOnClickListener{
                 val action = Fragment4Directions.actionFragment4ToFragment1()
                 findNavController().navigate(action)
+//                findNavController().navigate(
+//                   R.id.fragment1,null,
+//                    navOptions{
+//                        restoreState = true
+//                        popUpTo(R.id.fragment1){
+//                            saveState = true
+//                            inclusive = true
+//                        }
+//                        anim {
+//                            enter = android.R.animator.fade_in
+//                            exit = android.R.animator.fade_out
+//                        }
+//                    }
+//                )
+
+
+
+
+
+
+
+
             }
             navigateToSelf.setOnClickListener{
                 val action = Fragment4Directions.actionFragment4Self()

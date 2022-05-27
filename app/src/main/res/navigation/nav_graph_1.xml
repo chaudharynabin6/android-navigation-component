@@ -49,7 +49,10 @@
         tools:layout="@layout/fragment_4" >
         <action
             android:id="@+id/action_fragment4_to_fragment1"
-            app:destination="@id/fragment1" />
+            app:destination="@id/fragment1"
+            app:popUpTo="@id/fragment1"
+            app:popUpToInclusive="true"
+            />
         <action
             android:id="@+id/action_fragment4_self"
             app:destination="@id/fragment4" />

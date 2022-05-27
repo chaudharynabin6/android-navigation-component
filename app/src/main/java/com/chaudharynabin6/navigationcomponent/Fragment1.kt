@@ -57,6 +57,9 @@ class Fragment1 : Fragment() {
                 val action = Fragment1Directions.actionFragment1ToNestedNavGraph2()
                 findNavController().navigate(action)
             }
+            save.setOnClickListener {
+                this.text.text = this.editText.text
+            }
         }
         return binding.root
     }
