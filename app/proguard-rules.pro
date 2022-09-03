@@ -18,4 +18,12 @@
 
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
-#-renamesourcefileattribute SourceFile
+#-renamesourcefileattribute
+
+
+# keep parcelables
+#-keepnames class com.path.to.your.ParcelableArg
+#-keepnames class com.path.to.your.SerializableArg
+#-keepnames class com.path.to.your.EnumArg
+
+-keepnames class com.chaudharynabin6.navigationcomponent.data.User

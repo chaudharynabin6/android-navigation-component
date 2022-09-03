@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_fragment2_to_fragment4"
             app:destination="@id/fragment4" />
+        <argument
+            android:name="user"
+            app:argType="com.chaudharynabin6.navigationcomponent.data.User" />
     </fragment>
     <fragment
         android:id="@+id/fragment3"
@@ -41,6 +44,9 @@
         <action
             android:id="@+id/action_fragment3_to_fragment42"
             app:destination="@id/fragment4" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/fragment4"

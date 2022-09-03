@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.chaudharynabin6.navigationcomponent.data.User
 import com.chaudharynabin6.navigationcomponent.databinding.Fragment1Binding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -40,11 +41,18 @@ class Fragment1 : Fragment() {
         // Inflate the layout for this fragment
         binding = Fragment1Binding.inflate(inflater,container,false)
         binding.navigateToFragment2.setOnClickListener{
-           val action =  Fragment1Directions.actionFragment1ToFragment2()
+           val action =  Fragment1Directions.actionFragment1ToFragment2(
+              User(
+                   name = "Nabin Chaudhary",
+                   id = 100
+               )
+           )
             findNavController().navigate(action)
         }
         binding.navigateToFragment3.setOnClickListener{
-            val action = Fragment1Directions.actionFragment1ToFragment3()
+            val action = Fragment1Directions.actionFragment1ToFragment3(
+                "Naresh"
+            )
             findNavController().navigate(action)
         }
         binding.apply {

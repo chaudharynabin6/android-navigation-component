@@ -19,5 +19,12 @@
         android:layout_height="wrap_content"
         android:text="navigate to fragment 4"
         tools:ignore="HardcodedText" />
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fragment 2"
+        android:textAlignment="center"
+        tools:ignore="HardcodedText" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

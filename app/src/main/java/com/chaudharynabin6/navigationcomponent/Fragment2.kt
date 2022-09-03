@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.chaudharynabin6.navigationcomponent.databinding.Fragment2Binding
 import com.chaudharynabin6.navigationcomponent.databinding.Fragment3Binding
 
@@ -19,11 +20,13 @@ private const val ARG_PARAM2 = "param2"
  * Use the [Fragment2.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Fragment2 : Fragment() {
+class Fragment2 : Fragment(R.layout.fragment_2) {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var binding: Fragment2Binding
+
+    private val args by navArgs<Fragment2Args>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -43,6 +46,7 @@ class Fragment2 : Fragment() {
                 val action = Fragment2Directions.actionFragment2ToFragment4()
                 findNavController().navigate(action)
             }
+            userName.text = args.user.toString()
         }
         return binding.root
     }
