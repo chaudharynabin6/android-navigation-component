@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_history"
+    app:startDestination="@id/historyEntryPoint">
+
+    <fragment
+        android:id="@+id/historyEntryPoint"
+        android:name="com.chaudharynabin6.history.HistoryEntryPoint"
+        android:label="fragment_history_entry_point"
+        tools:layout="@layout/fragment_history_entry_point">
+        <deepLink
+            android:id="@+id/deeplink_history"
+            app:uri="@string/deeplink_history_entrypoint" />
+    </fragment>
+</navigation>

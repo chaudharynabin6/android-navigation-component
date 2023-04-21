@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_listing"
+    app:startDestination="@id/listingEntryPoint">
+
+    <fragment
+        android:id="@+id/listingEntryPoint"
+        android:name="com.chaudharynabin6.listing.ListingEntryPoint"
+        android:label="fragment_listing_entry_point"
+        tools:layout="@layout/fragment_listing_entry_point">
+        <deepLink
+            android:id="@+id/deeplink_listing"
+            app:uri="@string/deeplink_listing_entrypoint" />
+        <argument
+            android:name="user"
+            app:argType="string" />
+    </fragment>
+</navigation>

@@ -1,11 +1,13 @@
 package com.chaudharynabin6.navigationcomponent
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.chaudharynabin6.base.ui.InternalDeeplinkNavigation
 import com.chaudharynabin6.navigationcomponent.data.User
 import com.chaudharynabin6.navigationcomponent.databinding.Fragment1Binding
 
@@ -24,7 +26,7 @@ class Fragment1 : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    private lateinit var binding : Fragment1Binding
+    private lateinit var binding: Fragment1Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,20 +38,20 @@ class Fragment1 : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         // Inflate the layout for this fragment
-        binding = Fragment1Binding.inflate(inflater,container,false)
-        binding.navigateToFragment2.setOnClickListener{
-           val action =  Fragment1Directions.actionFragment1ToFragment2(
-              User(
-                   name = "Nabin Chaudhary",
-                   id = 100
-               )
-           )
+        binding = Fragment1Binding.inflate(inflater, container, false)
+        binding.navigateToFragment2.setOnClickListener {
+            val action = Fragment1Directions.actionFragment1ToFragment2(
+                User(
+                    name = "Nabin Chaudhary",
+                    id = 100
+                )
+            )
             findNavController().navigate(action)
         }
-        binding.navigateToFragment3.setOnClickListener{
+        binding.navigateToFragment3.setOnClickListener {
             val action = Fragment1Directions.actionFragment1ToFragment3(
                 "Naresh"
             )
@@ -67,6 +69,13 @@ class Fragment1 : Fragment() {
             }
             save.setOnClickListener {
                 this.text.text = this.editText.text
+            }
+        }
+
+        binding.apply {
+            navigateToHistory.setOnClickListener {
+                val deepLink = InternalDeeplinkNavigation(requireContext()).HISTORY.toUri()
+                findNavController().navigate(deepLink)
             }
         }
         return binding.root

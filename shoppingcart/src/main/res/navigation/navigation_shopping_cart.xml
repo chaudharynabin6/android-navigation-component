@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_shopping_cart"
+    app:startDestination="@id/shoppingEntryPointFragment">
+
+    <fragment
+        android:id="@+id/shoppingEntryPointFragment"
+        android:name="com.chaudharynabin6.shoppingcart.ShoppingEntryPointFragment"
+        android:label="fragment_shopping_entry_point"
+        tools:layout="@layout/fragment_shopping_entry_point">
+        <deepLink
+            android:id="@+id/deeplink_shopping_cart"
+            app:uri="@string/deeplink_shopping_entry_point" />
+    </fragment>
+</navigation>

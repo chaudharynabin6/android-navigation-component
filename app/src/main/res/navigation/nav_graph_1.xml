@@ -9,7 +9,7 @@
         android:id="@+id/fragment1"
         android:name="com.chaudharynabin6.navigationcomponent.Fragment1"
         android:label="fragment_1"
-        tools:layout="@layout/fragment_1" >
+        tools:layout="@layout/fragment_1">
         <action
             android:id="@+id/action_fragment1_to_fragment2"
             app:destination="@id/fragment2" />
@@ -28,7 +28,7 @@
         android:id="@+id/fragment2"
         android:name="com.chaudharynabin6.navigationcomponent.Fragment2"
         android:label="fragment_2"
-        tools:layout="@layout/fragment_2" >
+        tools:layout="@layout/fragment_2">
         <action
             android:id="@+id/action_fragment2_to_fragment4"
             app:destination="@id/fragment4" />
@@ -40,7 +40,7 @@
         android:id="@+id/fragment3"
         android:name="com.chaudharynabin6.navigationcomponent.Fragment3"
         android:label="fragment_3"
-        tools:layout="@layout/fragment_3" >
+        tools:layout="@layout/fragment_3">
         <action
             android:id="@+id/action_fragment3_to_fragment42"
             app:destination="@id/fragment4" />
@@ -52,24 +52,24 @@
         android:id="@+id/fragment4"
         android:name="com.chaudharynabin6.navigationcomponent.Fragment4"
         android:label="fragment_4"
-        tools:layout="@layout/fragment_4" >
+        tools:layout="@layout/fragment_4">
         <action
             android:id="@+id/action_fragment4_to_fragment1"
             app:destination="@id/fragment1"
             app:popUpTo="@id/fragment1"
-            app:popUpToInclusive="true"
-            />
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_fragment4_self"
             app:destination="@id/fragment4" />
     </fragment>
-    <navigation android:id="@+id/navigation2"
+    <navigation
+        android:id="@+id/navigation2"
         app:startDestination="@id/nested_1_12">
         <fragment
             android:id="@+id/nested_1_12"
             android:name="com.chaudharynabin6.navigationcomponent.Nested_1_1"
             android:label="fragment_nested_1_1"
-            tools:layout="@layout/fragment_nested_1_1" >
+            tools:layout="@layout/fragment_nested_1_1">
             <action
                 android:id="@+id/action_nested_1_12_to_nested_1_2"
                 app:destination="@id/nested_1_2" />
@@ -87,4 +87,9 @@
         android:id="@+id/action_global_fragment1_nav_graph"
         app:destination="@id/fragment1" />
     <include app:graph="@navigation/nested_nav_graph" />
+
+    <include app:graph="@navigation/navigation_history" />
+    <include app:graph="@navigation/navigation_listing" />
+    <include app:graph="@navigation/navigation_payment" />
+    <include app:graph="@navigation/navigation_shopping_cart" />
 </navigation>
