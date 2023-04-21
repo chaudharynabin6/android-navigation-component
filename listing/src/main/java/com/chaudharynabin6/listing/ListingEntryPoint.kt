@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.chaudharynabin6.base.ui.User
 import com.chaudharynabin6.listing.databinding.FragmentListingEntryPointBinding
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
+import com.google.common.io.BaseEncoding
+import com.google.gson.Gson
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,8 +49,10 @@ class ListingEntryPoint : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentListingEntryPointBinding.inflate(inflater, container, false)
 
-//        val user = Base64.getDecoder().decode(args.user).toString()
-        val user = Json.decodeFromString<User>(args.user)
+
+        val userString = BaseEncoding.base64Url().decode(args.user)
+//        val user = Json.decodeFromString<User>(userBase16.decodeToString())
+        val user = Gson().fromJson(userString.decodeToString(), User::class.java)
         binding.apply {
 
             text.text = user.toString()

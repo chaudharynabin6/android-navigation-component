@@ -11,8 +11,6 @@ import com.chaudharynabin6.base.ui.User
 import com.chaudharynabin6.history.databinding.FragmentHistoryEntryPointBinding
 import com.google.common.io.BaseEncoding
 import com.google.gson.Gson
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -54,19 +52,19 @@ class HistoryEntryPoint : Fragment() {
                 val gson = Gson()
                 val user = User(
                     """
-                    hello\uD83E\uDD23**%#{dfsdkjfeoik'$'}(*9)}*(j)j21kfjdk....~~~~ \\"""".trimIndent(),
+                    hello\uD83E\uDD23**%#{dfsdkjfeoik'$'}(*\"\\!#${'$'}%&/()[]{}=-+'^,.;:_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567899)}*(j)j21kfjdk..-Kg%"{wW:..~~~~ \\"""".trimIndent(),
                     1
                 )
 
-                val userJson = Json.encodeToString(user)
+//                val userJson = Json.encodeToString(user)
 
+                val userJson = Gson().toJson(user)
 
                 val userString =
                     "hello\\uD83E\\uDD23**%#{dfsdkjfeoik'\$'}(*9)}*(j)j21kfjdk....~~~~ \\\\\""
                 val userByteArray = userString.toByteArray()
 
-                val base32Encoded = BaseEncoding.base16().encode(userByteArray)
-//                val base64 = Base64.encodeToString(user, Base64.DEFAULT)
+                val base32Encoded = BaseEncoding.base64Url().encode(userJson.encodeToByteArray())
 
 
                 // https://github.com/google/gson/issues/2244
@@ -75,7 +73,7 @@ class HistoryEntryPoint : Fragment() {
 
 //                val serializedUser = gson.toJson(user)
                 val deepLinkURI = "myapp://listing?user=${
-                    userJson
+                    base32Encoded
                 }".toUri()
 
 
