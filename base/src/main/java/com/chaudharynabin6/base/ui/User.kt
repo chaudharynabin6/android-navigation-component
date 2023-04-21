@@ -3,6 +3,7 @@ package com.chaudharynabin6.base.ui
 import android.os.Parcelable
 import androidx.annotation.Keep
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
 //https://developer.android.com/guide/navigation/navigation-pass-data
 
@@ -10,6 +11,7 @@ import kotlinx.parcelize.Parcelize
 //https://www.youtube.com/watch?v=vtAHzpmibXo
 @Parcelize
 @Keep
+@Serializable
 data class User(
     val name: String,
     val id: Long,
