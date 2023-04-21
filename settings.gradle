@@ -14,3 +14,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "navigationComponent"
 include ':app'
+include ':base'
+include ':history'
+include ':payment'
+include ':listing'
+include ':shoppingcart'
