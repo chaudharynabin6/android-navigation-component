@@ -1,12 +1,15 @@
 package com.chaudharynabin6.listing
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.chaudharynabin6.listing.databinding.FragmentListingEntryPointBinding
+import com.google.common.io.BaseEncoding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +39,7 @@ class ListingEntryPoint : Fragment() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -43,8 +47,11 @@ class ListingEntryPoint : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentListingEntryPointBinding.inflate(inflater, container, false)
 
+//        val user = Base64.getDecoder().decode(args.user).toString()
+        val user = BaseEncoding.base16().decode(args.user).toString()
         binding.apply {
-            text.text = args.user
+
+            text.text = user
         }
         return binding.root
     }

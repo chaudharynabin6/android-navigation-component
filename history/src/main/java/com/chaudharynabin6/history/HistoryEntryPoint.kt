@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.chaudharynabin6.base.ui.User
 import com.chaudharynabin6.history.databinding.FragmentHistoryEntryPointBinding
+import com.google.common.io.BaseEncoding
 import com.google.gson.Gson
 
 // TODO: Rename parameter arguments, choose names that match
@@ -49,20 +50,28 @@ class HistoryEntryPoint : Fragment() {
 
 
                 val gson = Gson()
-
-
-                // https://github.com/google/gson/issues/2244
-                // https://stackoverflow.com/questions/71988144/serializer-for-class-is-not-found-mark-the-class-as-serializable-or-prov
                 val user = User(
                     """
                     hello\uD83E\uDD23**%#{dfsdkjfeoik'$'}(*9)}*(j)j21kfjdk....~~~~ \\"""".trimIndent(),
                     1
-                ).toString()
+                )
+
+
+                val userString =
+                    "hello\\uD83E\\uDD23**%#{dfsdkjfeoik'\$'}(*9)}*(j)j21kfjdk....~~~~ \\\\\""
+                val userByteArray = userString.toByteArray()
+
+                val base32Encoded = BaseEncoding.base16().encode(userByteArray)
+//                val base64 = Base64.encodeToString(user, Base64.DEFAULT)
+
+
+                // https://github.com/google/gson/issues/2244
+                // https://stackoverflow.com/questions/71988144/serializer-for-class-is-not-found-mark-the-class-as-serializable-or-prov
 
 
 //                val serializedUser = gson.toJson(user)
                 val deepLinkURI = "myapp://listing?user=${
-                    user
+                    base32Encoded
                 }".toUri()
 
 
