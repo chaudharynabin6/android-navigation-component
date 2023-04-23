@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
+import com.chaudharynabin6.payment.databinding.FragmentPaymentEntryPointBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +23,8 @@ class PaymentEntryPointFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private val args: PaymentEntryPointFragmentArgs by navArgs()
+    lateinit var binding: FragmentPaymentEntryPointBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,7 +38,13 @@ class PaymentEntryPointFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_payment_entry_point, container, false)
+
+        binding = FragmentPaymentEntryPointBinding.inflate(inflater, container, false)
+
+        binding.apply {
+            text.text = args.paymentType.name + "and" + args.id
+        }
+        return binding.root
     }
 
     companion object {

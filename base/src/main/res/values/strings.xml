@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="deeplink_history_entrypoint">myapp://history</string>
-    <string name="deeplink_payment_entrypoint">myapp://payment</string>
+    <string name="deeplink_payment_entrypoint">myapp://payment/{paymentType}/{id}</string>
     <string name="deeplink_listing_entrypoint">myapp://listing?user={user}</string>
     <string name="deeplink_shopping_entry_point">myapp://shopping_cart</string>
 </resources>

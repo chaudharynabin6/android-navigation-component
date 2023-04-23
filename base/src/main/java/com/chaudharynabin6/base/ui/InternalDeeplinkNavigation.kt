@@ -1,7 +1,10 @@
 package com.chaudharynabin6.base.ui
 
 import android.content.Context
+import android.net.Uri
+import androidx.core.net.toUri
 import com.chaudharynabin6.base.R
+import com.chaudharynabin6.base.ui.payment.navigation.PaymentType
 
 
 class InternalDeeplinkNavigation(
@@ -22,5 +25,9 @@ class InternalDeeplinkNavigation(
         return "${DOMAIN}customDeepLink?id=${id}"
     }
 
+    fun constructPaymentURI(paymentType: PaymentType, id: Int): Uri {
+        return PAYMENT.replace("{id}", id.toString()).replace("{paymentType}", paymentType.name)
+            .toUri()
+    }
 
 }

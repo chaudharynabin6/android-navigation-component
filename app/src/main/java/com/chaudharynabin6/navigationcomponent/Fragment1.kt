@@ -8,6 +8,7 @@ import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.chaudharynabin6.base.ui.InternalDeeplinkNavigation
+import com.chaudharynabin6.base.ui.payment.navigation.PaymentType
 import com.chaudharynabin6.navigationcomponent.data.User
 import com.chaudharynabin6.navigationcomponent.databinding.Fragment1Binding
 
@@ -75,6 +76,14 @@ class Fragment1 : Fragment() {
         binding.apply {
             navigateToHistory.setOnClickListener {
                 val deepLink = InternalDeeplinkNavigation(requireContext()).HISTORY.toUri()
+                findNavController().navigate(deepLink)
+            }
+
+            navigateToHistory.setOnClickListener {
+                val deepLink = InternalDeeplinkNavigation(requireContext()).constructPaymentURI(
+                    PaymentType.Cash,
+                    1
+                )
                 findNavController().navigate(deepLink)
             }
         }

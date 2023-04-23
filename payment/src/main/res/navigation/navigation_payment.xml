@@ -10,8 +10,15 @@
         android:name="com.chaudharynabin6.payment.PaymentEntryPointFragment"
         android:label="fragment_payment_entry_point"
         tools:layout="@layout/fragment_payment_entry_point">
+
         <deepLink
             android:id="@+id/deeplink_payment"
             app:uri="@string/deeplink_payment_entrypoint" />
+        <argument
+            android:name="paymentType"
+            app:argType="com.chaudharynabin6.base.ui.payment.navigation.PaymentType" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
 </navigation>
